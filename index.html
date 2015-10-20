@@ -6,6 +6,9 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1">
     	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     	<title>Invasive Appetites</title>
+    	
+    	<!-- Google fonts -->
+    	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
 
     	<!-- Bootstrap -->
     		<!-- Latest compiled and minified CSS -->
@@ -39,7 +42,6 @@
 			body {
 				font-size: 62.5%;
 				margin:0px;
-				font-family: arial;
 			}
 		
 			.variablewidth {
@@ -67,15 +69,94 @@
 				margin: 0px;
 				padding: 0px;
 			}
+			/* this is the end of catch-alls */
+			
+			/* this is to allow Google fonts */
+			@font-face {
+  				font-family: 'Raleway';
+  				font-style: normal;
+  				font-weight: 400;
+  				src: local('Raleway'), local('Raleway'), url('http://themes.googleusercontent.com/static/fonts/opensans/v5/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
+				}
+			
+			body {
+				font-family: 'Raleway', Futura light, trebuchet, arial, sans-serif;
+			}
+			
+			h1 {
+				font-weight:100;
+				font-size:8em;
+			}
+			
+			#header {
+				width:110%;
+				background-style:cover;
+				background-position:center;
+				padding-top: 12%;
+				padding-left: 8.3333%;
+				background-color:orange;
+			}
+			
+			.navbar-ul {
+				list-style-type: none;
+				padding-top:5.5em;
+				padding-right:3em;
+				}
+			
+			.navbar-item {
+				font-size:2em;
+				padding-right:2em;
+				padding-bottom:0.6em;
+			}
+			
+			.horizontal-rule {
+				background-color:green;
+				width:110%;
+			}
+			
+			hr {
+				background: grey;
+				border: 1px solid #999;
+				height: 7px;
+				}
+				
+			.header-div {
+				background-color:blue;
+			}
+			
+			.navbar-div {
+				background-color:purple;
+			}
     	</style>
   </head>
   <body>
     
-    <div class="container">
-    	<h1>Hello, world!</h1>
-    
-    
+    <div class="container row">
+    	<div class="variable-width" id="header">
+    		<div class="col-md-6 pull-left header-div">
+    			<h1>MOLLY YOUNG</h1>
+    		</div>
+    		<div class="col-md-6 col-md-offset pull-right navbar-div">
+    			<p class="navbar-p"><ul class="navbar-ul">
+    				<li class="navbar-item pull-left">FOOD</li>
+    				<li class="navbar-item pull-left">PLEASANT VALLEY</li>
+    				<li class="navbar-item pull-left">PROJECTS & HOBBIES</li>
+    				<li class="navbar-item pull-left">US</li>
+    			</ul></p>
+    		</div>
+    	<div>
     <div>
+    
+    <div class="container row">
+    	<div class="col-md-12 variable-width horizontal-rule">
+    		<hr />
+    	<div>
+    </div>
+    
+    <!-- *** convert this into to code-school friendly script -->
+    <script>
+    	$("#container").css("min-height",$(window).height());
+    </script>
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
