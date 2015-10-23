@@ -83,7 +83,7 @@ respond.min.js"></script>
     	font-size: 0;
     	line-height: 0
 	}
-	/*end of tricky stuff */
+	/* end */
    
     /*for navbar and footer */
     .navbar {
@@ -103,7 +103,21 @@ respond.min.js"></script>
     .navbar-ul {
     	padding-top: 2%;
     	}
-    
+    	
+    /* this is to over-ride Bootstrap to center-align navbar */
+    @media (min-width: 768px) {
+    	.navbar .navbar-nav {
+        	display: inline-block;
+        	float: none;
+        	vertical-align: top;
+    	}
+
+    	.navbar .navbar-collapse {
+        	text-align: center;
+    	}
+	}   
+	/* end */
+	
     .background-image {
     	background: url('background1.jpg') no-repeat fixed center;
     	background-size:cover;
@@ -175,7 +189,7 @@ respond.min.js"></script>
 		</button>
 
 		<div class="collapse navbar-collapse">
-			<ul class="nav navbar-nav navbar-ul pull-right">
+			<ul class="nav navbar-nav navbar-ul">
 				<li class="navbar-items"><a href=""><span class="dark-grey">HOME</span></a></li>
 				<li class="navbar-items"><a href="">TRAVEL</a></li>
 				<li class="navbar-items"><a href="">FOOD</a></li>
