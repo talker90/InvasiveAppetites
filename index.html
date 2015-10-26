@@ -5,33 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Invasive Appetites</title>
-
+	
+	<!-- for tab icon
 	<link rel="shortcut icon" href="icontest.ico" type="image/x-icon">
 	<link rel="icon" href="icontest.ico" type="image/x-icon">
+	-->
 
-	<!-- Bootstrap -->
+<!-- jQuery -->
+
+		<!-- locaL -->
+	<link href="jqueryBase.css" rel="stylesheet" />
 	
+	<script src="jquery.js"></script>
+
+		<!-- CDN -->
+		
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
+<!-- Bootstrap -->
+	
+		<!-- local -->
 	<link href="cssbootstrap.css" type="text/css" rel="stylesheet">
-	
+		
+		<!-- CDN -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media
-queries -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></
-script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/
-respond.min.js"></script>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     
 <style>
+	/* note iPhone 320x568 2x, iPad 768x1054 2x
+	@media screen and (min-width:569px) {
+		.slider-placeholder {
+			background-color: gray; 
+		} 
+	}
+	
+	@media screen and (min-width:769px) {
+		.slider-placeholder {
+			background-color:red;
+		}
+	} */
+	
 
 	/* these are my catch-alls */
- 	/* img, embed, object, video {
-		max-width:100%;
-	}	*/
-	
     button, nav a {
 		min-height:48px;
 		min-width:48px;
@@ -41,23 +65,25 @@ respond.min.js"></script>
 	body {
 		font-size: 62.5%;
 		margin:0px;
-	}
-
-	p {
-		margin: 0px;
-		padding: 0px;
+		padding: 0;
+		box-sizing: border-box;
 	}
 	
 	.clear-float {
 		float: both;
 	}
-	/* end of catch-alls */
+	/*** end of catch-alls ***/
     
-    .navbar-top {
-    	padding-top: 9%;
-    	padding-bottom: 4%;
-    	margin-bottom: 0;
+    body {
+    	font-family: 'Trebuchet MS', Verdana, 'Geneva', Arial, sans-serif;
+    	color:#989898;
+    	font-size:1.25rem;
     }
+    
+    .dark-grey {
+    	color:#242423;
+    }
+    
     
     /* tricky stuff to make letters strech across screen. see:http://stackoverflow.com/questions/6865194/fluid-width-with-equally-spaced-divs */
     .navbar-header {
@@ -90,10 +116,10 @@ respond.min.js"></script>
     	background-color:transparent;
     }
     
-    body {
-    	font-family: 'Trebuchet MS', Verdana, 'Geneva', Arial, sans-serif;
-    	color:#989898;
-    	font-size:1.25rem;
+    .navbar-top {
+    	padding-top: 2%;
+    	padding-bottom: 1%;
+    	margin-bottom: 0;
     }
     
     .navbar-items {
@@ -101,7 +127,7 @@ respond.min.js"></script>
     }
     
     .navbar-ul {
-    	padding-top: 2%;
+    	padding-top: 1%;
     	}
     	
     /* this is to over-ride Bootstrap to center-align navbar */
@@ -117,25 +143,31 @@ respond.min.js"></script>
     	}
 	}   
 	/* end */
-	
-    .background-image {
-    	background: url('background1.jpg') no-repeat fixed center;
-    	background-size:cover;
-    }
     
-    .slider-placeholder {
-    	height: 200px;
-    	width: 100%;
-    	background-color: gray;
-    }
-    
-    .dark-grey {
-    	color:#242423;
-    }
-    
+    #slider {
+		overflow: hidden;
+		width:100vw;
+		height:20vh;
+	}
+
+	#slider .slides {
+		display: block;
+		height:20vh;
+		margin:0;
+		padding:0;
+		width:6000px;
+	}
+
+	#slider .slide {
+		list-style-type: none;
+		height:20vh;
+		width:100vw;
+		float: left;
+	}
+
     .footer {
-    	padding-top: 4%;
-    	padding-bottom: 4%;
+    	padding-top: 5%;
+    	padding-bottom: 5%;
     	border-bottom: none;
     }
  	
@@ -151,13 +183,14 @@ respond.min.js"></script>
  		width: 55px;
  		padding:0.5rem;
  	}
+			
 
 </style>
 </head>
 
 <body>
 
-<div class="navbar navbar-default navbar-top">
+<header class="navbar navbar-default navbar-top">
 	<div class="container">
 	
 		<div class="navbar-header">
@@ -197,32 +230,125 @@ respond.min.js"></script>
 			</ul>
 		</div>
 	</div>
-</div>
+</header>
 
-<div class="background-image">
-	<div class="slider-placeholder">
+<section id="slider">
+	<div id="slider">
+        <ul class="slides">
+        	<li class="slide" id="slide1">
+				<a href="">
+					<picture>
+						<!-- <source media="(min/max-width: sizepx)" srcset="image_size.webp sizew, image_size.webp sizew" sizes="(min/max-width: sizepx) sizevw" type="image/webp"/>
+						<source media="(min-width: sizepx)" srcset="image_size.jpg sizew, image_size.jpg sizew" sizes="(min/max-width: sizepx) sizevw" type="image/jpeg"/>
+						<img src="image_defaultSize" alt="very descriptive text for the visually impaired"/> -->
+						<img src="mollykate1.jpg" alt="descriptive text" />
+					</picture>
+				</a>
+			</li>
+			<li class="slide" id="slide2">
+				<a href="">
+					<picture>
+						<!-- <source media="(min/max-width: sizepx)" srcset="image_size.webp sizew, image_size.webp sizew" sizes="(min/max-width: sizepx) sizevw" type="image/webp"/>
+						<source media="(min-width: sizepx)" srcset="image_size.jpg sizew, image_size.jpg sizew" sizes="(min/max-width: sizepx) sizevw" type="image/jpeg"/>
+						<img src="image_defaultSize" alt="very descriptive text for the visually impaired"/> -->
+						<img src="mollykate2.jpg" alt="descriptive text" />
+					</picture>
+				</a>
+			</li>
+			<li class="slide" id="slide3">
+				<a href="">
+					<picture>
+						<!-- <source media="(min/max-width: sizepx)" srcset="image_size.webp sizew, image_size.webp sizew" sizes="(min/max-width: sizepx) sizevw" type="image/webp"/>
+						<source media="(min-width: sizepx)" srcset="image_size.jpg sizew, image_size.jpg sizew" sizes="(min/max-width: sizepx) sizevw" type="image/jpeg"/>
+						<img src="image_defaultSize" alt="very descriptive text for the visually impaired"/> -->
+						<img src="mollykate4.jpg" alt="descriptive text" />
+					</picture>
+				</a>
+			</li>
+			<li class="slide" id="slide1">
+				<a href="">
+					<picture>
+						<!-- <source media="(min/max-width: sizepx)" srcset="image_size.webp sizew, image_size.webp sizew" sizes="(min/max-width: sizepx) sizevw" type="image/webp"/>
+						<source media="(min-width: sizepx)" srcset="image_size.jpg sizew, image_size.jpg sizew" sizes="(min/max-width: sizepx) sizevw" type="image/jpeg"/>
+						<img src="image_defaultSize" alt="very descriptive text for the visually impaired"/> -->
+						<img src="mollykate1.jpg" alt="descriptive text" />
+					</picture>
+				</a>
+			</li>
+		</uL>
 	</div>
-</div>
+</setion>
 
-<div class="navbar navbar-default footer">
+<footer class="navbar navbar-default footer">
 	<div class="container">
 		<p class="pull-left">Designed and Developed by<img class="jilla-logo" src="Jilla foraged meal logo by maxeem.jpg" /><span class="dark-grey">CharZilla Design</span><img class="charlie-logo" src="charlie turtle logo by maxeem.jpg" /></p>
 		<span class="glyphicon glyphicon-camera pull-right"></span>
 	</div>
-</div>
+</footer>
+
+<script>
+	//for navbar off-canvas
+	// $(function() {menu.addEventListener('click', function(offCanvas) {
+		// drawer.classList.toggle('open');
+		// offCanvas.stopPropagation();
+		// });
+	// });
+</script>
+
+<script>
+'use strict';
+
+$(function() {
+
+	//cache 
+    var $slider = $('#slider');
+    var $slideContainer = $slider.find('.slides');
+    var $slides = $slider.find('.slide');
+    var interval;
+
+    //config
+    var $windowWidth = $slider.find('.slide').css("width");
+    var width = $windowWidth;
+    var animationSpeed = 1000;
+    var pause = 3000;
+    var currentSlide = 1;
+
+    function startSlider() {
+        interval = setInterval(function() {
+            $slideContainer.animate({'margin-left': '-='+width}, animationSpeed, function() {
+                if (++currentSlide === $slides.length) {
+                    currentSlide = 1;
+                    $slideContainer.css('margin-left', 0);
+                }
+            });
+        }, pause);
+    }
+    function pauseSlider() {
+        clearInterval(interval);
+    }
+
+    $slideContainer
+        .on('mouseenter', pauseSlider)
+        .on('mouseleave', startSlider);
+
+    startSlider();
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+});
+
+</script>
+
+	
+    <!-- Bootstrap's jQuery
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/
 jquery.min.js"></script>
 
-    <!-- Include all compiled plugins (below), or include individual files as
-needed -->
-
-<script src="preview://templates/jsbootstrap.min.js"></script>
+<script src="boostrap.js"></script>
     
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+-->
 
 </body>
 </html>
