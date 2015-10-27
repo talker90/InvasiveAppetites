@@ -7,7 +7,198 @@
 <script src="jquery.js"></script>
 
 <link href="cssbootstrap.css" type="text/css" rel="stylesheet">
+
+<style>
+	/* these are my catch-alls */
+    button, nav a {
+		min-height:48px;
+		min-width:48px;
+		padding: 0.83333em inherit;
+	}
+			
+	* {
+		margin:0;
+		padding: 0;
+		box-sizing: border-box;
+	}
 	
+	.clear-float {
+		float: both;
+	}
+	/*** end of catch-alls ***/
+    
+    body {
+    	font-family: 'Trebuchet MS', Verdana, 'Geneva', Arial, sans-serif;
+    	color:#989898;
+    	font-size:1rem;
+    }
+    
+    .dark-grey {
+    	color:#242423;
+    }
+    
+    
+		/* tricky stuff to make letters strech across screen. see: http://stackoverflow.com/questions/6865194/fluid-width-with-equally-spaced-divs */
+    	.navbar-header {
+    		width:100%;
+    		text-align: justify;
+    		-ms-text-justify: distribute-all-lines;
+    		text-justify: distribute-all-lines;
+    	}
+    
+	
+		.header-letter {
+    		vertical-align: top;
+    		display: inline-block;
+    		*display: inline;
+    		zoom: 1;
+    		font-size: 6rem;
+    		font-weight: 100;
+		}
+	
+		.stretch {
+    		width: 100%;
+    		display: inline-block;
+    		font-size: 0;
+    		line-height: 0;
+		}
+		/* end stretch */
+   
+    /*for navbar*/
+    .navbar, .container {
+    	width: 100vw;
+    	height: 20vh;
+    }
+    
+    .navbar-header {
+    	padding-top: 2vh;
+    }
+    
+    /* .container {
+    	background-color:red;
+    	border: 1px solid #999;
+    }
+    
+    .navbar-header {
+    	background-color: orange;
+    	border: 1px solid #999;
+    }
+    
+    .navbar-collapse {
+    	background-color: yellow;
+    	border: 1px solid #999;
+    }
+    */
+    
+    .navbar-items {
+    	padding-right: 2vw;
+    }
+    
+    	
+    /* this is to over-ride Bootstrap to center-align navbar */
+    @media (min-width: 768px) {
+    	.navbar .navbar-nav {
+        	display: inline-block;
+        	float: none;
+        	vertical-align: top;
+    	}
+
+    	.navbar .navbar-collapse {
+        	text-align: center;
+    	}
+	}   
+	/* end */
+
+#slider {
+	overflow: hidden;
+	width:100vw;
+	height:70vh;
+	background-color: purple; /***/
+}
+
+#slider .slides {
+	display: block;
+	height:70vh;
+	width:calc(100vw*4);
+}
+
+#slider .slide {
+	list-style-type: none;
+	width:100vw;
+	height:70vh;
+	float: left; /*get image to contain itself in div, left off on background-image srcset. Though I think the real solution is smaller image sizes, stretch/squash */
+}
+
+.location {
+	font-size: 3rem; /* figure out how to base on viewport area */
+	color:blue;
+	text-align: center;
+	bottom: 25vh;
+	position: relative;
+	z-index: 1;
+}
+
+/* note iPhone 320x568 2x, iPad 768x1054 2x
+			@media screen and (min/max-width:sizepx) and (min/max-width:sizepx) {
+					.classIfYes{
+					} 
+				} */
+
+.slide {
+	z-index: -1;
+}
+
+.dots {
+	background-color: transparent;
+	height: calc(50vh/16);
+	width: calc(50vh/16);
+	border: 1px yellow solid;
+	border-radius: calc(50vh/32);
+	position:relative;
+	float:left;
+	bottom: 7vh;
+	left: calc(50vw - ((50vh/16)*3)/2);
+	z-index: 2;
+}
+
+.filled {
+	background-color:gray;
+}
+
+footer {
+	height: 10vh;
+}
+
+footer p {
+	width:100%;
+	bottom: 2vh;
+}
+
+.brand {
+	margin-left: 2vw;
+}
+
+footer span {
+	padding-right: 2vw;
+	padding-top: 3vh;
+}
+
+.charlie-logo {
+ 		height:35px;
+ 		width:35px;
+ 		border-radius: calc(35px/2);
+ }
+ 	
+ 	.jilla-logo {
+ 		height: 55px;
+ 		width: 55px;
+ 		padding:0.5rem;
+ }
+
+
+
+</style>
+
 </head>
 <body>
 
