@@ -181,7 +181,7 @@ nav a:active{
 
 /*slider*/
 section {
-	overflow:hidden;
+	/* overflow:hidden; */
 	width:100vw;
 	height:70vh;
 }
@@ -246,9 +246,33 @@ figcaption {
 	font-size: 3rem; /* fallback */
 	font-size: 8vmin;
 }
+
+.dot {
+	background-color: transparent;
+	height: 2rem; /* fallback */
+	width: 2rem; /* fallback */
+	border-radius: 1rem; /* fallback */
+	height: 4vmin;
+	width: 4vmin;
+	border-radius: 2vmin; /* fallback */
+	border-radius: calc(4vmin/2);
+	border: 1px solid #989898; /* grey */ /* fallback */
+	border: 0.1vmin solid #989898; /* grey */
+	float:left;
+}
+
+#dots {
+	padding-left: 2rem; /* fallback */
+	padding-left: 3.5vw;
+	position: relative;
+	bottom: 8.5rem; /* fallback */
+	bottom: 20vh;
+}
+
+.filled {
+	background-color:#989898; /* grey */
+}
 /*end slider*/
-
-
 
 footer {
 	height: 10vh;
@@ -371,12 +395,21 @@ footer {background-color: purple; border: 1px solid #999;}
 		<li>
 			<a href="">
 				<figure>
-					<div id="slide-1"></div>
+					<div id="slide-4"></div>
 					<figcaption>TEXT 1</figcaption>
 				</figure>
 			</a>
 		</li>
 	</ul>
+	<div class="row">
+		<div class="col-5"></div>
+		<div class="col-2" id="dots">
+			<div class="dot" id="dot1"></div>
+			<div class="dot" id="dot2"></div>
+			<div class="dot" id="dot3"></div>
+		</div>
+		<div class="col-5"></div>
+	</div>
 </section>
 
 <footer>
