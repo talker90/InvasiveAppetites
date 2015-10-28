@@ -258,7 +258,7 @@ figcaption {
 	border-radius: calc(4vmin/2);
 	border: 1px solid #989898; /* grey */ /* fallback */
 	border: 0.1vmin solid #989898; /* grey */
-	float:left;
+	float:left; 
 }
 
 #dotsContainer {
@@ -440,13 +440,16 @@ $(document).ready(function () {
     var $slideContainer = $slider.find('ul');
     var $slides = $slider.find('li');
     var $windowWidth = $slider.css('width');
+    var $windowWidthUnitless = $slider.width();
     var $dot1 = $slider.find('#dot-1');
     var $dot2 = $slider.find('#dot-2');
     var $dot3 = $slider.find('#dot-3');
+    var $dots = $slider.find('#dotsContainer');
     var interval;
 
     //config
     var width = $windowWidth;
+    var doubleWidth = $windowWidthUnitless * 2;
     var animationSpeed = 1000;
     var pause = 3000;
     var currentSlide = 1;
@@ -487,6 +490,33 @@ $(document).ready(function () {
     $slideContainer
         .on('mouseenter', pauseSlider)
         .on('mouseleave', startSlider);
+        
+    $($dots).on('click',$dot1,function() {
+    	currentSlide = 1;
+    	$slideContainer.css('margin-left', 0);
+    	$dot1.addClass('filled');
+		$dot2.removeClass('filled');
+		$dot3.removeClass('filled');
+		clearInterval(interval);
+    })
+    
+    $($dots).on('click',$dot2,function() {
+    	currentSlide = 2;
+    	$slideContainer.css('margin-left', '-' +width);
+    	$dot1.removeClass('filled');
+		$dot2.addClass('filled');
+		$dot3.removeClass('filled');
+		clearInterval(interval);
+    })
+    
+    $($dots).on('click',$dot3,function() {
+    	currentSlide = 3;
+    	$slideContainer.css('margin-left', "-" +doubleWidth +"px");
+    	$dot1.removeClass('filled');
+		$dot2.removeClass('filled');
+		$dot3.addClass('filled');
+		clearInterval(interval);
+    })
 
     startSlider();
 
