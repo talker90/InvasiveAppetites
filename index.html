@@ -2,360 +2,411 @@
 <html>
 <head>
 
-<link rel="stylesheet" href="deleteme.css" type="text/css"/>
+<title>Invasive Appetites</title>
+
+<!-- local -->
+
+<link rel="stylesheet" href="styles2.css" type="text/css"/>
+
+<link rel="stylesheet" media="screen and (min/max-width: sizepx)" href="over/underSizePx.css" />
 
 <script src="jquery.js"></script>
 
-<link href="cssbootstrap.css" type="text/css" rel="stylesheet">
+<!-- CDN -->
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
 <style>
-	/* these are my catch-alls */
-    button, nav a {
-		min-height:48px;
-		min-width:48px;
-		padding: 0.83333em inherit;
-	}
-			
-	* {
-		margin:0;
-		padding: 0;
-		box-sizing: border-box;
-	}
-	
-	.clear-float {
-		float: both;
-	}
-	/*** end of catch-alls ***/
-    
-    body {
-    	font-family: 'Trebuchet MS', Verdana, 'Geneva', Arial, sans-serif;
-    	color:#989898;
-    	font-size:1rem;
-    }
-    
-    .dark-grey {
-    	color:#242423;
-    }
-    
-    
-		/* tricky stuff to make letters strech across screen. see: http://stackoverflow.com/questions/6865194/fluid-width-with-equally-spaced-divs */
-    	.navbar-header {
-    		width:100%;
-    		text-align: justify;
-    		-ms-text-justify: distribute-all-lines;
-    		text-justify: distribute-all-lines;
-    	}
-    
-	
-		.header-letter {
-    		vertical-align: top;
-    		display: inline-block;
-    		*display: inline;
-    		zoom: 1;
-    		font-size: 6rem;
-    		font-weight: 100;
-		}
-	
-		.stretch {
-    		width: 100%;
-    		display: inline-block;
-    		font-size: 0;
-    		line-height: 0;
-		}
-		/* end stretch */
-   
-    /*for navbar*/
-    .navbar, .container {
-    	width: 100vw;
-    	height: 20vh;
-    }
-    
-    .navbar-header {
-    	padding-top: 2vh;
-    }
-    
-    /* .container {
-    	background-color:red;
-    	border: 1px solid #999;
-    }
-    
-    .navbar-header {
-    	background-color: orange;
-    	border: 1px solid #999;
-    }
-    
-    .navbar-collapse {
-    	background-color: yellow;
-    	border: 1px solid #999;
-    }
-    */
-    
-    .navbar-items {
-    	padding-right: 2vw;
-    }
-    
-    	
-    /* this is to over-ride Bootstrap to center-align navbar */
-    @media (min-width: 768px) {
-    	.navbar .navbar-nav {
-        	display: inline-block;
-        	float: none;
-        	vertical-align: top;
-    	}
 
-    	.navbar .navbar-collapse {
-        	text-align: center;
-    	}
-	}   
-	/* end */
-
-#slider {
-	overflow: hidden;
-	width:100vw;
-	height:70vh;
-	background-color: purple; /***/
+/* these are my catch-alls */
+* {
+	margin:0;
+	padding:0;
+	box-sizing: border-box; 
 }
 
-#slider .slides {
+main {
+	display: block; /* this is to make sure main tag is universally */
+}
+
+button, nav a {
+	min-height:48px;
+	min-width:48px; /* make sure to consider 0.8333 - 1.5em padding */
+}
+
+.clear-float {
+	clear:both;
+}
+
+/* for 12 grid, from http://www.w3schools.com/css/css_rwd_mediaqueries.asp */
+/* For mobile phones: */
+[class*="col-"] {
+    width: 100vw;
+}
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-m-1 {width: 8.18vw;}
+    .col-m-2 {width: 16.66vw;}
+    .col-m-3 {width: 25vw;}
+    .col-m-4 {width: 33.33vw;}
+    .col-m-5 {width: 41.66vw;}
+    .col-m-6 {width: 50vw;}
+    .col-m-7 {width: 58.33vw;}
+    .col-m-8 {width: 66.66vw;}
+    .col-m-9 {width: 75vw;}
+    .col-m-10 {width: 83.33vw;}
+    .col-m-11 {width: 91.66vw;}
+    .col-m-12 {width: 100vw;}
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.18vw;}
+    .col-2 {width: 16.66vw;}
+    .col-3 {width: 25vw;}
+    .col-4 {width: 33.33vw;}
+    .col-5 {width: 41.66vw;}
+    .col-6 {width: 50vw;}
+    .col-7 {width: 58.33vw;}
+    .col-8 {width: 66.66vw;}
+    .col-9 {width: 75vw;}
+    .col-10 {width: 83.33vw;}
+    .col-11 {width: 91.66vw;}
+    .col-12 {width: 100vw;}
+}
+
+
+[class*="col-"] {
+	float: left;
+	/* padding: 15px; */
+	border: 0.5px transparent solid;
+}
+
+.row:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+/* end 12 grid */
+
+/* end catch-alls */
+
+* {
+    font-family: 'Trebuchet MS', Verdana, 'Geneva', Arial, sans-serif;
+    color:#989898; /* grey */
+    font-weight: 100;
+}
+
+/* tricky stuff to make letters strech across screen. see: http://stackoverflow.com/questions/6865194/fluid-width-with-equally-spaced-divs */
+header {
+	width:100%;
+	text-align: justify;
+	-ms-text-justify: distribute-all-lines;
+	text-justify: distribute-all-lines;
+}
+
+header div {
+	vertical-align: top;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+}
+
+.stretch {
+	width: 100%;
+	display: inline-block;
+	font-size: 0;
+	line-height: 0;
+}
+/* end tricky stuff */
+
+header {
+	padding-left: 10vw;
+	padding-right: 10vw;
+	padding-top: 5vh;
+	padding-bottom: 0;
+}
+
+header div {
+	color:#242423; /* dark grey */
+	font-size: 4rem; /* fall-back */
+	font-size: 8vmin;
+} 
+
+nav {
+	width: 100vw;
+}
+
+nav ul {
+	list-style-type: none;
+	text-align: center;
+}
+
+nav li {
+	display: inline;
+	padding-right: 40px; /* size of a finger-tip */
+	font-size: 1rem; /* fallback */
+	font-size: 2.5vmin;
+}
+
+nav li:last-of-type {
+	padding-right: 0;
+}
+
+nav a {
+	text-decoration: none;
+	min-height: 48px; /* size of a finger-tip */
+	min-width: 48px; /* size of a finger-tip */
+}
+
+nav a:hover {
+	color:black;
+}
+
+nav a:visited {
+	color:#989898; /* grey */
+}
+
+nav a:active{
+	color:#242423; /* dark grey */
+}
+
+.active {
+	color:#242423; /* dark grey */
+	font-size: inherit;
+}
+
+/*slider*/
+section {
+	overflow:hidden;
+	width:100vw;
+	height:70vh;
+}
+
+section div ul {
 	display: block;
 	height:70vh;
 	width:calc(100vw*4);
 }
 
-#slider .slide {
+section div ul li {
 	list-style-type: none;
 	width:100vw;
 	height:70vh;
-	float: left; /*get image to contain itself in div, left off on background-image srcset. Though I think the real solution is smaller image sizes, stretch/squash */
+	float: left;
 }
 
-.location {
-	font-size: 3rem; /* figure out how to base on viewport area */
-	color:blue;
-	text-align: center;
-	bottom: 25vh;
-	position: relative;
-	z-index: 1;
+
+[id*="slide-"] {
+	width: 100vw;
+	height: 70vh;
 }
 
-/* note iPhone 320x568 2x, iPad 768x1054 2x
-			@media screen and (min/max-width:sizepx) and (min/max-width:sizepx) {
-					.classIfYes{
-					} 
-				} */
-
-.slide {
-	z-index: -1;
+/* note iPhone 320x568 2x, iPad 768x1054 2x */
+@media only screen and (min-width:768px) {
+	#slide-1 {
+		background: url('image_1054x768.jpg') no-repeat center;
+		background-size: cover;
+	}
 }
 
-.dots {
-	background-color: transparent;
-	height: calc(50vh/16);
-	width: calc(50vh/16);
-	border: 1px yellow solid;
-	border-radius: calc(50vh/32);
-	position:relative;
-	float:left;
-	bottom: 7vh;
-	left: calc(50vw - ((50vh/16)*3)/2);
-	z-index: 2;
+@media only screen and (min-width:1054px) {
+	#slide-1 {
+		background: url('image_768x1054.jpg') no-repeat center;
+		background-size: cover;
+	}
 }
 
-.filled {
-	background-color:gray;
+@media only screen and (min-width:768px) {
+	#slide-2 {
+		background: url('image_1054x768.jpg') no-repeat center;
+		background-size: cover;
+	}
 }
+
+@media only screen and (min-width:1054px) {
+	#slide-2 {
+		background: url('image_768x1054.jpg') no-repeat center;
+		background-size: cover;
+	}
+}
+
+@media only screen and (min-width:768px) {
+	#slide-3 {
+		background: url('image_1054x768.jpg') no-repeat center;
+		background-size: cover;
+	}
+}
+
+@media only screen and (min-width:1054px) {
+	#slide-3 {
+		background: url('image_768x1054.jpg') no-repeat center;
+		background-size: cover;
+	}
+}
+
+/*end slider*/
+
+
 
 footer {
 	height: 10vh;
 }
 
 footer p {
-	width:100%;
-	bottom: 2vh;
+	font-size: 1rem; /* fallback */
+	font-size: 2.5vmin;
 }
 
-.brand {
-	margin-left: 2vw;
+footer p, #charlieLogo, #jillaLogo {
+	float:left;
+	margin-left: 0.5rem; /* fallback */
+	margin-left: 1vmin;
 }
 
-footer span {
-	padding-right: 2vw;
-	padding-top: 3vh;
+footer p:first-of-type {
+	float:left;
+	margin-left:0;
 }
 
-.charlie-logo {
- 		height:35px;
- 		width:35px;
- 		border-radius: calc(35px/2);
- }
- 	
- 	.jilla-logo {
- 		height: 55px;
- 		width: 55px;
- 		padding:0.5rem;
- }
+#charlieLogo, #jillaLogo {
+	width: 1rem; /* fallback */
+	height: 1rem; /* fallback */
+	width: 2.5vmin; 
+	height: 2.5vmin;
+	border-radius: 0.5rem; /* fallback */
+	border-radius: calc(2.5vmin/2);
+	border: 1px solid #999; /**/
+}
 
+#charlieLogo {
+	background: url('charlie turtle logo by maxeem.jpg') no-repeat center;
+	background-size: contain;
+}
 
+#jillaLogo {
+	background: url('Jilla foraged meal logo by maxeem.jpg') no-repeat center;
+	background-size: contain;
+}
+
+/*
+header {background-color: red; border: 1px solid #999;}
+header div {background-color: orange; border: 1px solid #999;}
+nav {background-color: yellow; border: 1px solid #999;}
+main {background-color: green; border: 1px solid #999;}
+section {background-color: blue; border: 1px solid #999;}
+footer {background-color: purple; border: 1px solid #999;}
+*/
 
 </style>
 
 </head>
 <body>
-
-<header class="navbar">
-	<div class="container">
-		<div class="navbar-header">
-			<div class="header-letter dark-grey">I</div>
-			<div class="header-letter dark-grey">n</div>
-			<div class="header-letter dark-grey">v</div>
-			<div class="header-letter dark-grey">a</div>
-			<div class="header-letter dark-grey">s</div>
-			<div class="header-letter dark-grey">i</div>
-			<div class="header-letter dark-grey">v</div>
-			<div class="header-letter dark-grey">e</div> 
-			<div class="header-letter dark-grey">&nbsp</div> 
-			<div class="header-letter dark-grey">A</div> 
-			<div class="header-letter dark-grey">p</div> 
-			<div class="header-letter dark-grey">p</div> 
-			<div class="header-letter dark-grey">e</div> 
-			<div class="header-letter dark-grey">t</div> 
-			<div class="header-letter dark-grey">i</div> 
-			<div class="header-letter dark-grey">t</div>
-			<div class="header-letter dark-grey">e</div> 
-			<div class="header-letter dark-grey">s</div>
-			<span class="stretch"></span>
-		</div>
-		
-		<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-		</button>
-
-		<div class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li class="navbar-items">
-					<a href=""><span class="dark-grey">HOME</span></a>
-				</li>
-				<li class="navbar-items">
-					<a href="">TRAVEL</a>
-				</li>
-				<li class="navbar-items">
-					<a href="">FOOD</a>
-				</li>
-				<li class="navbar-items">
-					<a href="">US</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+<header>
+	<div>I</div>
+	<div>n</div>
+	<div>v</div>
+	<div>a</div>
+	<div>s</div>
+	<div>i</div>
+	<div>v</div>
+	<div>e</div>
+	<div>&nbsp</div>  
+	<div>A</div> 
+	<div>p</div> 
+	<div>p</div> 
+	<div>e</div> 
+	<div>t</div> 
+	<div>i</div> 
+	<div>t</div>
+	<div>e</div> 
+	<div>s</div>
+	<span class="stretch"></span>
 </header>
+	
+<nav>
+	<ul>
+		<li>
+			<a href=""><span class="active">HOME</span></a>
+		</li>
+		<li>
+			<a href="">TRAVEL</a>
+		</li>
+		<li>
+			<a href="">FOOD</a>
+		</li>
+		<li>
+			<a href="">US</a>
+		</li>
+	</ul>
+</nav>
 
-<section class="slider">
-	<div id="slider">
-		<ul class="slides">
-			<li class="slide" id="slide1">
-				<a href="">
-					<figure>
-						<picture>
-							<!-- <source media="(min-width: 768)" srcset="image_1536x2108.webp 1536w, image_768x1054.webp 768w" sizes="(min-width: 768px) 100vw" type="image/webp"/> -->
-							<source media="(min-width: 768px)" srcset="image_1536x2108.jpg 1536w, image_768x1054.jpg 768w" sizes="(min-width: 768px) 100vw" type="image/jpeg"/>
-							<!-- <source media="(min-width: 1054)" srcset="image_2108x1536.webp 2108w, image_1054x768.webp 1054w" sizes="(min-width: 1054px) 100vw" type="image/webp"/> -->
-							<source media="(min-width: 1054px)" srcset="image_2108x1536.jpg 2108w, image_1054x768.jpg 1054w" sizes="(min-width: 1054px) 100vw" type="image/jpeg"/>
-							<img src="image_2108x2108.jpg" alt="The slider shows a landscape image over the city of Quito, with the sun setting over rolling volcanos"/>
-						</picture>
-						<figcaption class="location">TEXT 1</figcaption>
-					</figure>
-				</a>
-			</li>
-			<li class="slide" id="slide2">
-				<a href="">
-					<figure>
-						<picture>
-							<!-- <source media="(min-width: 768)" srcset="image_1536x2108.webp 1536w, image_768x1054.webp 768w" sizes="(min-width: 768px) 100vw" type="image/webp"/> -->
-							<source media="(min-width: 768px)" srcset="image_1536x2108.jpg 1536w, image_768x1054.jpg 768w" sizes="(min-width: 768px) 100vw" type="image/jpeg"/>
-							<!-- <source media="(min-width: 1054)" srcset="image_2108x1536.webp 2108w, image_1054x768.webp 1054w" sizes="(min-width: 1054px) 100vw" type="image/webp"/> -->
-							<source media="(min-width: 1054px)" srcset="image_2108x1536.jpg 2108w, image_1054x768.jpg 1054w" sizes="(min-width: 1054px) 100vw" type="image/jpeg"/>
-							<img src="image_2108x2108.jpg" alt="The slider shows a landscape image over the city of Quito, with the sun setting over rolling volcanos"/>
-						</picture>
-						<figcaption class="location">TEXT 2</figcaption>
-					</figure>
-				</a>
-			</li>
-			<li class="slide" id="slide3">
-				<a href="">
-					<figure>
-						<picture>
-							<!-- <source media="(min-width: 768)" srcset="image_1536x2108.webp 1536w, image_768x1054.webp 768w" sizes="(min-width: 768px) 100vw" type="image/webp"/> -->
-							<source media="(min-width: 768px)" srcset="image_1536x2108.jpg 1536w, image_768x1054.jpg 768w" sizes="(min-width: 768px) 100vw" type="image/jpeg"/>
-							<!-- <source media="(min-width: 1054)" srcset="image_2108x1536.webp 2108w, image_1054x768.webp 1054w" sizes="(min-width: 1054px) 100vw" type="image/webp"/> -->
-							<source media="(min-width: 1054px)" srcset="image_2108x1536.jpg 2108w, image_1054x768.jpg 1054w" sizes="(min-width: 1054px) 100vw" type="image/jpeg"/>
-							<img src="image_2108x2108.jpg" alt="The slider shows a landscape image over the city of Quito, with the sun setting over rolling volcanos"/>
-						</picture>
-						<figcaption class="location">TEXT 3</figcaption>
-					</figure>
-				</a>
-			</li>
-			<li class="slide" id="slide1">
-				<a href="">
-					<figure>
-						<picture>
-							<!-- <source media="(min-width: 768)" srcset="image_1536x2108.webp 1536w, image_768x1054.webp 768w" sizes="(min-width: 768px) 100vw" type="image/webp"/> -->
-							<source media="(min-width: 768px)" srcset="image_1536x2108.jpg 1536w, image_768x1054.jpg 768w" sizes="(min-width: 768px) 100vw" type="image/jpeg"/>
-							<!-- <source media="(min-width: 1054)" srcset="image_2108x1536.webp 2108w, image_1054x768.webp 1054w" sizes="(min-width: 1054px) 100vw" type="image/webp"/> -->
-							<source media="(min-width: 1054px)" srcset="image_2108x1536.jpg 2108w, image_1054x768.jpg 1054w" sizes="(min-width: 1054px) 100vw" type="image/jpeg"/>
-							<img src="image_2108x2108.jpg" alt="The slider shows a landscape image over the city of Quito, with the sun setting over rolling volcanos"/>
-						</picture>
-						<figcaption class="location">TEXT 1</figcaption>
-					</figure>
-				</a>
-			</li>
-		</ul>
-		<!--
-		<ul class="slides">
-			<li class="slide" id="slideText1">
-				<a href="">
-					<p class="location">TEXT 1</p>
-				</a>
-			</li>
-			<li class="slide" id="slideText2">
-				<a href="">
-					<p class="location">TEXT 2</p>
-				</a>
-			</li>
-			<li class="slide" id="slideText3">
-				<a href="">
-					<p class="location">TEXT 3</p>
-				</a>
-			</li>
-			<li class="slide" id="slideText1">
-				<a href="">
-					<p class="location">TEXT 1</p>
-				</a>
-			</li>
-		</ul>
-		-->
-	</div>
-	<div class="dots" id="dot1"></div>
-	<div class="dots" id="dot2"></div>
-	<div class="dots" id="dot3"></div>	
+<section>
+	<ul>
+		<li>
+			<a href="">
+				<figure>
+					<div id="slide-1"></div>
+					<figcaption>TEXT 1</figcaption>
+				</figure>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<figure>
+					<div id="slide-2"></div>
+					<figcaption>TEXT 2</figcaption>
+				</figure>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<figure>
+					<div id="slide-3"></div>
+					<figcaption>TEXT 3</figcaption>
+				</figure>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<figure>
+					<div id="slide-4"></div>
+					<figcaption>TEXT 1</figcaption>
+				</figure>
+			</a>
+		</li>
+	</ul>
 </section>
 
 <footer>
-	<p class="pull-left brand">Designed and Developed by<img class="jilla-logo" src="Jilla foraged meal logo by maxeem.jpg" /><span class="dark-grey">CharZilla Design</span><img class="charlie-logo" src="charlie turtle logo by maxeem.jpg" />
-	<span class="glyphicon glyphicon-camera pull-right"></span></p>
+	<div class="row">
+		<div class="col-6">
+			<p>Designed and Developed by</p>
+			<div id="jillaLogo"></div>
+			<p class="active">CharZilla Design</p>
+			<div id="charlieLogo"></div>
+		</div>
+		<div class="col-5"></div>
+		<div class="col-1">
+			<!-- social media icons goes here -->
+		</div>
+	</div>
+	<div class="clear"></div>
 </footer>
 
 <script>
 'use strict';
 
-$(function() {
+$(document).ready(function () {
 
 	//cache 
-    var $slider = $('.slider');
-    var $slideContainer = $slider.find('.slides');
-    var $slides = $slider.find('.slide');
-    var $slideWidth = $slider.find('#slide1').css('width');
+    var $slider = $('section');
+    var $slideContainer = $slider.find('ul');
+    var $slides = $slider.find('li');
+    var $slideWidth = $slider.css('width');
     var $dot1 = $slider.find('#dot1');
     var $dot2 = $slider.find('#dot2');
     var $dot3 = $slider.find('#dot3');
@@ -392,24 +443,7 @@ $(function() {
 
 </script>
 
-<!--
-switch (currentSlide) {
-			case 2:
-				$dot1.toggleClass('filled');
-				$dot2.toggleClass('filled');
-			case 3:
-				$dot2.toggleClass('filled');
-				$dot3.toggleClass('filled');
-			case 4:
-				$dot3.toggleClass('filled');
-				$dot1.toggleClass('filled');
-			default:
-				$dot1.addClass('filled');
-				$dot2.removeClass('filled');
-				$dot3.removeClass('filled');
-		}
--->
-
-
+<!-- this is so main tag is universally accepted -->
+<script>document.createElement('main');</script>
 </body>
 </html>
