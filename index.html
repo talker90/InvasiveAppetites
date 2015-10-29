@@ -85,6 +85,10 @@ button, nav a {
 	border: 0.5px transparent solid;
 }
 
+.row {
+	width:100vw;
+}
+
 .row:after {
     content: "";
     clear: both;
@@ -203,9 +207,11 @@ section li {
 [id*="slide-"] {
 	width: 100vw;
 	height: 70vh;
+	z-index: -1;
 }
 
 /* note iPhone 320x568 2x, iPad 768x1054 2x */
+
 @media only screen and (min-width:568px) and (orientation:portrait) {
 	#slide-1 {
 		background: url('image_1536x2108.jpg') no-repeat center;
@@ -245,28 +251,31 @@ figcaption {
 	color:white;
 	font-size: 3rem; /* fallback */
 	font-size: 8vmin;
+	z-index: 1;
 }
 
 [id*="dot-"] {
 	background-color: transparent;
-	height: 2rem; /* fallback */
-	width: 2rem; /* fallback */
-	border-radius: 1rem; /* fallback */
-	height: 4vmin;
-	width: 4vmin;
-	border-radius: 2vmin; /* fallback */
-	border-radius: calc(4vmin/2);
+	min-height: 40px; /* size of fingertip */
+	min-width: 40px; /* size of fingertip */
+	border-radius: 24px;
 	border: 1px solid #989898; /* grey */ /* fallback */
 	border: 0.1vmin solid #989898; /* grey */
 	float:left; 
+	margin-right: 40px; /* size of fingertip */
+}
+
+[id*="dot-"]:last-of-type {
+	margin-right: 0;
 }
 
 #dotsContainer {
-	padding-left: 2rem; /* fallback */
-	padding-left: 3.5vw;
 	position: relative;
 	bottom: 8.5rem; /* fallback */
 	bottom: 20vh;
+	height:48px; /* size of fingertip */
+	width: 65%;
+	margin: auto;
 }
 
 .filled {
@@ -402,13 +411,15 @@ footer {background-color: purple; border: 1px solid #999;}
 		</li>
 	</ul>
 	<div class="row">
-		<div class="col-5"></div>
-		<div class="col-2" id="dotsContainer">
-			<div class="filled" id="dot-1"></div>
-			<div id="dot-2"></div>
-			<div id="dot-3"></div>
+		<div class="col-4"></div>
+		<div class="col-4">
+			<div id="dotsContainer">
+				<div class="filled" id="dot-1"></div>
+				<div id="dot-2"></div>
+				<div id="dot-3"></div>
+			</div>
 		</div>
-		<div class="col-5"></div>
+		<div class="col-4"></div>
 	</div>
 </section>
 
