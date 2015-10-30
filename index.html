@@ -31,62 +31,53 @@ main {
 	display: block; /* this is to make sure main tag is universally */
 }
 
-button, nav a {
-	min-height:48px;
-	min-width:48px; /* make sure to consider 0.8333 - 1.5em padding */
-}
-
 .clear-float {
 	clear:both;
 }
 
-/* for 12 grid, from http://www.w3schools.com/css/css_rwd_mediaqueries.asp */
-/* For mobile phones: */
-[class*="col-"] {
-    width: 100vw;
-}
+/* end catch-alls */
 
-@media only screen and (min-width: 600px) {
-    /* For tablets: */
-    .col-m-1 {width: 8.18vw;}
-    .col-m-2 {width: 16.66vw;}
-    .col-m-3 {width: 25vw;}
-    .col-m-4 {width: 33.33vw;}
-    .col-m-5 {width: 41.66vw;}
-    .col-m-6 {width: 50vw;}
-    .col-m-7 {width: 58.33vw;}
-    .col-m-8 {width: 66.66vw;}
-    .col-m-9 {width: 75vw;}
-    .col-m-10 {width: 83.33vw;}
-    .col-m-11 {width: 91.66vw;}
-    .col-m-12 {width: 100vw;}
-}
 
-@media only screen and (min-width: 768px) {
-    /* For desktop: */
-    .col-1 {width: 8.18vw;}
-    .col-2 {width: 16.66vw;}
-    .col-3 {width: 25vw;}
-    .col-4 {width: 33.33vw;}
-    .col-5 {width: 41.66vw;}
-    .col-6 {width: 50vw;}
-    .col-7 {width: 58.33vw;}
-    .col-8 {width: 66.66vw;}
-    .col-9 {width: 75vw;}
-    .col-10 {width: 83.33vw;}
-    .col-11 {width: 91.66vw;}
-    .col-12 {width: 100vw;}
-}
+/*Charlie's 12 Column Grid*/
+/**  if horizontal centering, have to manually enter % width in div inside of [class*="col-"] **/
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+} /* these are just the pre-sets my grid was built with, if you want to change these you can but you will have to then tweak the config */
 
+header, nav, main, section, article, aside, footer, details,
+summary, mark {
+	position: relative;
+} /* allows for vertical centering */
 
 [class*="col-"] {
-	float: left;
-	/* padding: 15px; */
+	padding: -0.5px;
 	border: 0.5px transparent solid;
+	margin-left: -2.5px;
+	margin-right: -2.5px; /* to correct shifting from removing float:left; */
 }
 
 .row {
 	width:100vw;
+	
+	white-space:nowrap;
+	position:absolute;
+	top:0;right:0;left:0;bottom:0;
+	text-align:center; 
+} 
+
+.row:before, [class*="col-"] {
+	display:inline-block;
+	vertical-align:middle;
+	white-space:normal; 
+	text-align:left; 
+}
+
+.row:before {
+	content:"";
+	margin-right:-.3em;
+	height:100%;
 }
 
 .row:after {
@@ -94,9 +85,52 @@ button, nav a {
     clear: both;
     display: block;
 }
-/* end 12 grid */
 
-/* end catch-alls */
+[class*="col-"] > div {
+	margin:0 auto;
+}
+
+#ruler {
+	display: none;
+} /* this is just something I use to look at the grid sizing */
+
+	/* for mobile */
+[class*="col-"] {
+	width: 100vw;
+}
+
+@media only screen and (min-width: 600px) {
+	/* For tablets: */
+	.col-12 {width: 100vw;} 
+	.col-11 {width: 91.66666667vw;} 
+	.col-10 {width: 83.33333333vw;}
+	.col-9 {width: 75vw;}
+	.col-8 {width: 66.66666667vw;}
+	.col-7 {width: 58.33333333vw;}
+	.col-6 {width: 50vw;}
+	.col-5 {width: 41.66666667vw;}
+	.col-4 {width: 33.33333333vw;}
+	.col-3 {width: 25vw;}
+	.col-2 {width: 16.66666667vw;}
+	.col-1 {width: 8.33333333vw;}
+}
+
+@media only screen and (min-width: 768px) {
+	/* For desktop: */
+	.col-12 {width: 100vw;} 
+	.col-11 {width: 91.66666667vw;} 
+	.col-10 {width: 83.33333333vw;}
+	.col-9 {width: 75vw;}
+	.col-8 {width: 66.66666667vw;}
+	.col-7 {width: 58.33333333vw;}
+	.col-6 {width: 50vw;}
+	.col-5 {width: 41.66666667vw;}
+	.col-4 {width: 33.33333333vw;}
+	.col-3 {width: 25vw;}
+	.col-2 {width: 16.66666667vw;}
+	.col-1 {width: 8.33333333vw;}
+}
+/* end 12 grid */
 
 * {
     font-family: 'Trebuchet MS', Verdana, 'Geneva', Arial, sans-serif;
@@ -272,10 +306,9 @@ figcaption {
 #dotsContainer {
 	position: relative;
 	bottom: 8.5rem; /* fallback */
-	bottom: 20vh;
+	bottom: -30vh;
 	height:48px; /* size of fingertip */
 	width: 65%;
-	margin: auto;
 }
 
 .filled {
@@ -323,13 +356,19 @@ footer p:first-of-type {
 	background-size: contain;
 }
 
+.footer-content-left {
+	width: 75%;
+}
+
 /*
-header {background-color: red; border: 1px solid #999;}
-header div {background-color: orange; border: 1px solid #999;}
-nav {background-color: yellow; border: 1px solid #999;}
-main {background-color: green; border: 1px solid #999;}
-section {background-color: blue; border: 1px solid #999;}
-footer {background-color: purple; border: 1px solid #999;}
+header {background-color: red; border: 0.5px solid #999;}
+header div {background-color: orange; border: 0.5px solid #999;}
+nav {background-color: yellow; border: 0.5px solid #999;}
+main {background-color: green; border: 0.5px solid #999;}
+section {background-color: blue; border: 0.5px solid #999;}
+footer {background-color: purple; border: 0.5px solid #999;}
+[class*="col-"] {height:4vh;padding:-1px;border:1px red solid;}
+#ruler {display:block;}
 */
 
 </style>
@@ -426,18 +465,23 @@ footer {background-color: purple; border: 1px solid #999;}
 <footer>
 	<div class="row">
 		<div class="col-6">
-			<p>Designed and Developed by</p>
-			<div id="jillaLogo"></div>
-			<p class="active">CharZilla Design</p>
-			<div id="charlieLogo"></div>
+			<div class="footer-content-left">
+				<p>Designed and Developed by</p>
+				<div id="jillaLogo"></div>
+				<p class="active">CharZilla Design</p>
+				<div id="charlieLogo"></div>
+			</div>
 		</div>
 		<div class="col-5"></div>
 		<div class="col-1">
 			<!-- social media icons goes here -->
 		</div>
 	</div>
-	<div class="clear"></div>
 </footer>
+
+<div class="row" id="ruler" style="position:fixed;bottom:50vh;"><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div>
+	<div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div></div><!-- this is just something I use to measure my gridding with, it's set display:none; above -->
+
 
 <script>
 'use strict';
