@@ -546,7 +546,7 @@ $(document).ready(function () {
         .on('mouseenter', pauseSlider)
         .on('mouseleave', startSlider);
         
-    $($dots).on('click',$dot1,function() {
+    $($dots).on('click',"#dot-1",function() {
     	currentSlide = 1;
     	$slideContainer.css('margin-left', 0);
     	$dot1.addClass('filled');
@@ -555,7 +555,7 @@ $(document).ready(function () {
 		clearInterval(interval);
     })
     
-    $($dots).on('click',$dot2,function() {
+    $($dots).on('click',"#dot-2",function() {
     	currentSlide = 2;
     	$slideContainer.css('margin-left', '-' +width);
     	$dot1.removeClass('filled');
@@ -564,7 +564,7 @@ $(document).ready(function () {
 		clearInterval(interval);
     })
     
-    $($dots).on('click',$dot3,function() {
+    $($dots).on('click',"#dot-3",function() {
     	currentSlide = 3;
     	$slideContainer.css('margin-left', "-" +doubleWidth +"px");
     	$dot1.removeClass('filled');
