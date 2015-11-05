@@ -214,7 +214,6 @@ nav a:active{
 
 .active {
 	color:#242423; /* dark grey */
-	font-size: inherit;
 }
 
 /*slider*/
@@ -246,33 +245,145 @@ section li {
 
 /* note iPhone 320x568 2x, iPad 768x1054 2x */
 
-@media only screen and (min-width:568px) and (orientation:portrait) {
+#slide-1 {
+	background: url('image_1_320_568.jpg') no-repeat center;
+	background: url('image_1_320_568.webp') no-repeat center;
+	background-size: cover; /* or contain */
+}
+#slide-2 {
+	background: url('image_2_320_568.jpg') no-repeat center;
+	background: url('image_2_320_568.webp') no-repeat center;
+	background-size: cover; /* or contain */
+}
+#slide-3 {
+	background: url('image_3_320_568.jpg') no-repeat center;
+	background: url('image_3_320_568.webp') no-repeat center;
+	background-size: cover; /* or contain */
+}
+
+@media only screen and (min-resolution:192dpi), only screen and (-webkit-min-device-pixel-ratio: 2) {
 	#slide-1 {
-		background: url('image_1536x2108.jpg') no-repeat center;
-		background-size: cover;
+		background: url('image_1_640_1136.jpg') no-repeat center;
+		background: url('image_1_640_1136.webp') no-repeat center;
+		background-size: cover; /* or contain */
 	}
 	#slide-2 {
-		background: url('image_1536x2108.jpg') no-repeat center;
-		background-size: cover;
+		background: url('image_2_640_1136.jpg') no-repeat center;
+		background: url('image_2_640_1136.webp') no-repeat center;
+		background-size: cover; /* or contain */
 	}
 	#slide-3 {
-		background: url('image_1536x2108.jpg') no-repeat center;
-		background-size: cover;
+		background: url('image_3_640_1136.jpg') no-repeat center;
+		background: url('image_3_640_1136.webp') no-repeat center;
+		background-size: cover; /* or contain */
 	}
 }
 
-@media only screen and (min-width:769px) and (orientation:landscape) {
+@media screen and (min-width:321px) {
 	#slide-1 {
-		background: url('image_2108x1536.jpg') no-repeat center;
-		background-size: cover;
+		background: url('image_1_568_320.jpg') no-repeat center;
+		background: url('image_1_568_320.webp') no-repeat center;
+		background-size: cover; /* or contain */
 	}
 	#slide-2 {
-		background: url('image_2108x1536.jpg') no-repeat center;
-		background-size: cover;
+		background: url('image_2_568_320.jpg') no-repeat center;
+		background: url('image_2_568_320.webp') no-repeat center;
+		background-size: cover; /* or contain */
 	}
 	#slide-3 {
-		background: url('image_2108x1536.jpg') no-repeat center;
-		background-size: cover;
+		background: url('image_3_568_320.jpg') no-repeat center;
+		background: url('image_3_568_320.webp') no-repeat center;
+		background-size: cover; /* or contain */
+	}
+}
+
+@media only screen and (min-resolution:192dpi) and (min-width:321px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width:321px) {
+	#slide-1 {
+		background: url('image_1_1136_640.jpg') no-repeat center;
+		background: url('image_1_1136_640.webp') no-repeat center;
+		background-size: cover; /* or contain */
+	}
+	#slide-2 {
+		background: url('image_2_1136_640.jpg') no-repeat center;
+		background: url('image_2_1136_640.webp') no-repeat center;
+		background-size: cover; /* or contain */
+	}
+	#slide-3 {
+		background: url('image_3_1136_640.jpg') no-repeat center;
+		background: url('image_3_1136_640.webp') no-repeat center;
+		background-size: cover; /* or contain */
+	}
+}
+
+@media screen and (min-width:569px) {
+	#slide-1 {
+		background: url('image_1_768_1054.jpg') no-repeat center;
+		background: url('image_1_768_1054.webp') no-repeat center;
+		background-size: cover; /* or contain */
+	}
+	#slide-2 {
+		background: url('image_2_768_1054.jpg') no-repeat center;
+		background: url('image_2_768_1054.webp') no-repeat center;
+		background-size: cover; /* or contain */
+	}
+	#slide-3 {
+		background: url('image_3_768_1054.jpg') no-repeat center;
+		background: url('image_3_768_1054.webp') no-repeat center;
+		background-size: cover; /* or contain */
+	}
+}
+
+@media only screen and (min-resolution:192dpi) and (min-width:569px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width:569px) {
+	#slide-1 {
+		background: url('image_1_1536_2108.jpg') no-repeat center;
+		background: url('image_1_1536_2108.webp') no-repeat center;
+		background-size: cover; /* or contain */
+	}
+	#slide-2 {
+		background: url('image_2_1536_2108.jpg') no-repeat center;
+		background: url('image_2_1536_2108.webp') no-repeat center;
+		background-size: cover; /* or contain */
+	}
+	#slide-3 {
+		background: url('image_3_1536_2108.jpg') no-repeat center;
+		background: url('image_3_1536_2108.webp') no-repeat center;
+		background-size: cover; /* or contain */
+	}
+}
+
+@media screen and (min-width:769px) {
+	#slide-1 {
+		background: url('image_1_1054_768.jpg') no-repeat center;
+		background: url('image_1_1054_768.webp') no-repeat center;
+		background-size: cover; /* or contain */
+	}
+	#slide-2 {
+		background: url('image_2_1054_768.jpg') no-repeat center;
+		background: url('image_2_1054_768.webp') no-repeat center;
+		background-size: cover; /* or contain */
+	}
+	#slide-3 {
+		background: url('image_3_1054_768.jpg') no-repeat center;
+		background: url('image_3_1054_768.webp') no-repeat center;
+		background-size: cover; /* or contain */
+	}
+}
+
+@media only screen and (min-resolution:192dpi) and (min-width:769px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width:769px) {
+	#slide-1 {
+		background: url('image_1_2108_1536.jpg') no-repeat center;
+		background: url('image_1_2108_1536.webp') no-repeat center;
+		background-size: cover; /* or contain */
+	}
+	#slide-2 {
+		background: url('image_2_2108_1536.jpg') no-repeat center;
+		background: url('image_2_2108_1536.webp') no-repeat center;
+		background-size: cover; /* or contain */
+	}
+	#slide-3 {
+		background: url('image_3_2108_1536.jpg') no-repeat center;
+		background: url('image_3_2108_1536.webp') no-repeat center;
+		background-size: cover; /* or contain */
 	}
 }
 
@@ -322,7 +433,7 @@ footer {
 
 footer p {
 	font-size: 1rem; /* fallback */
-	font-size: 2.5vmin;
+	font-size: 2vmin;
 }
 
 footer p, #charlieLogo, #jillaLogo {
@@ -332,7 +443,6 @@ footer p, #charlieLogo, #jillaLogo {
 }
 
 footer p:first-of-type {
-	float:left;
 	margin-left:0;
 }
 
@@ -360,6 +470,7 @@ footer p:first-of-type {
 	width: 75%;
 }
 
+
 /*
 header {background-color: red; border: 0.5px solid #999;}
 header div {background-color: orange; border: 0.5px solid #999;}
@@ -370,6 +481,7 @@ footer {background-color: purple; border: 0.5px solid #999;}
 [class*="col-"] {height:4vh;padding:-1px;border:1px red solid;}
 #ruler {display:block;}
 */
+
 
 </style>
 
@@ -464,7 +576,7 @@ footer {background-color: purple; border: 0.5px solid #999;}
 
 <footer>
 	<div class="row">
-		<div class="col-6">
+		<div class="col-8">
 			<div class="footer-content-left">
 				<p>Designed and Developed by</p>
 				<div id="jillaLogo"></div>
@@ -472,8 +584,8 @@ footer {background-color: purple; border: 0.5px solid #999;}
 				<div id="charlieLogo"></div>
 			</div>
 		</div>
-		<div class="col-5"></div>
-		<div class="col-1">
+		<div class="col-2"></div>
+		<div class="col-2">
 			<!-- social media icons goes here -->
 		</div>
 	</div>
