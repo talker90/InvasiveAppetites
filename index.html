@@ -40,11 +40,6 @@ main {
 
 /*Charlie's 12 Column Grid*/
 /**  if horizontal centering, have to manually enter % width in div inside of [class*="col-"] **/
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-} /* these are just the pre-sets my grid was built with, if you want to change these you can but you will have to then tweak the config */
 
 header, nav, main, section, article, aside, footer, details,
 summary, mark {
@@ -184,14 +179,8 @@ nav ul {
 }
 
 nav li {
-	display: inline;
-	padding-right: 40px; /* size of a finger-tip */
 	font-size: 1rem; /* fallback */
 	font-size: 2.5vmin;
-}
-
-nav li:last-of-type {
-	padding-right: 0;
 }
 
 nav a {
@@ -214,6 +203,44 @@ nav a:active{
 
 .active {
 	color:#242423; /* dark grey */
+}
+
+/* for dropdown */
+nav > ul > li {
+	display: inline;
+	padding-right: 40px; /* size of a finger-tip */
+}
+
+nav > ul > li:last-of-type {
+	padding-right: 0;
+}
+    
+nav li ul {
+	position:absolute;
+	z-index:1; /* just in case */
+	text-align: left;
+	background: #989898; /* grey */
+	left: 27rem; /* fallback */
+	left: 45vw; /* fallback */
+	left:calc(50vw - (((31.8211vw + 38.9646vh)/2)/4) );
+}
+
+nav li li {
+	overflow:hidden;
+	max-height:0;
+	-webkit-transition:max-height 500ms ease;
+	-moz-transition:max-height 500ms ease;
+	-o-transition:max-height 500ms ease;
+	transition:max-height 500ms ease;
+	
+}
+
+nav li li a {
+	color: black; /* dark grey */
+}
+
+nav ul > li:hover li {
+	max-height:150px;
 }
 
 /*slider*/
@@ -447,15 +474,16 @@ footer p:first-of-type {
 
 
 /*
-header {background-color: red; border: 0.5px solid #999;}
-header div {background-color: orange; border: 0.5px solid #999;}
-nav {background-color: yellow; border: 0.5px solid #999;}
-main {background-color: green; border: 0.5px solid #999;}
-section {background-color: blue; border: 0.5px solid #999;}
-footer {background-color: purple; border: 0.5px solid #999;}
+header {background: red; border: 0.5px solid #999;}
+header div {background: orange; border: 0.5px solid #999;}
+nav {background: yellow; border: 0.5px solid #999;}
+main {background: green; border: 0.5px solid #999;}
+section {background: blue; border: 0.5px solid #999;}
+footer {background: purple; border: 0.5px solid #999;}
 [class*="col-"] {height:4vh;padding:-1px;border:1px red solid;}
 #ruler {display:block;}
 */
+
 
 </style>
 
@@ -489,13 +517,21 @@ footer {background-color: purple; border: 0.5px solid #999;}
 			<a href="/public_html/index.html"><span class="active">HOME</span></a>
 		</li>
 		<li>
-			<a href="http://invasiveappetites.wordpress.com/travel">TRAVEL</a>
+			<a href="#" id="travel">TRAVEL</a>
+			<ul>
+				<li>
+					<a href="http://www.invasiveappetites.wordpress.com/colombia">COLOMBIA</a>
+				</li>
+				<li>
+					<a href="http://www.invasiveappetites.wordpress.com/ecuador">ECUADOR</a>
+				</li>
+			</ul>
 		</li>
 		<li>
-			<a href="http://invasiveappetites.wordpress.com/quito-posts">FOOD</a>
+			<a href="http://www.invasiveappetites.wordpress.com/quito-posts">FOOD</a>
 		</li>
 		<li>
-			<a href="http://invasiveappetites.wordpress.com/about">US</a>
+			<a href="http://www.invasiveappetites.wordpress.com/about">US</a>
 		</li>
 	</ul>
 </nav>
@@ -503,7 +539,7 @@ footer {background-color: purple; border: 0.5px solid #999;}
 <section>
 	<ul>
 		<li>
-			<a href="http://invasiveappetites.wordpress.com/amazon-yasuni/">
+			<a href="http://www.invasiveappetites.wordpress.com/amazon-yasuni/">
 				<figure>
 					<div id="slide-1" role="img" aria-label="background image showing a large Amazonian mammal (the Tayra) in the tree-tops, the image is a link to the Yasuni page" ></div>
 					<figcaption>YASUNI</figcaption>
@@ -511,7 +547,7 @@ footer {background-color: purple; border: 0.5px solid #999;}
 			</a>
 		</li>
 		<li>
-			<a href="http://invasiveappetites.wordpress.com/comuna-pomeya/">
+			<a href="http://www.invasiveappetites.wordpress.com/comuna-pomeya/">
 				<figure>
 					<div id="slide-2" role="img" aria-label="background image showing a simple raised home, the image is a link to the Pompeya page"></div>
 					<figcaption>COMUNIDAD POMPEYA</figcaption>
@@ -519,7 +555,7 @@ footer {background-color: purple; border: 0.5px solid #999;}
 			</a>
 		</li>
 		<li>
-			<a href="http://invasiveappetites.wordpress.com/tena-2/">
+			<a href="http://www.invasiveappetites.wordpress.com/tena-2/">
 				<figure>
 					<div id="slide-3" role="img" aria-label="background image showing a skewer of roasted grub worms on a banana leaf, the image is a link to the Tena page"></div>
 					<figcaption>TENA</figcaption>
@@ -527,7 +563,7 @@ footer {background-color: purple; border: 0.5px solid #999;}
 			</a>
 		</li>
 		<li>
-			<a href="http://invasiveappetites.wordpress.com/amazon-yasuni/">
+			<a href="http://www.invasiveappetites.wordpress.com/amazon-yasuni/">
 				<figure>
 					<div id="slide-1" role="img" aria-label=""></div>
 					<figcaption>YASUNI</figcaption>
@@ -565,8 +601,7 @@ footer {background-color: purple; border: 0.5px solid #999;}
 	</div>
 </footer>
 
-<div class="row" id="ruler" style="position:fixed;bottom:50vh;"><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div>
-	<div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div></div><!-- this is just something I use to measure my gridding with, it's set display:none; above -->
+<div class="row" id="ruler" style="position:fixed;bottom:50vh;"><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div></div><!-- this is just something I use to measure my gridding with, it's set display:none; above -->
 
 
 <script>
@@ -660,6 +695,30 @@ $(document).ready(function () {
     })
 
     startSlider();
+
+});
+</script>
+
+<script type="text/javascript">
+
+var $textWidth = $("#travel").width();
+var $footer = $("footer");
+
+$footer.append().$textWidth.val();
+
+</script>
+
+
+<script>
+$(document).ready(function () {
+
+var $nav = $('nav');
+
+$($nav).on("dblclick","#travel",function(event) {
+	window.location.replace($(this).attr("http://www.invasiveappetites.wordpress.com/travel/"));
+});
+
+//add collapsing to hamburger, but can probably do with pure css
 
 });
 </script>
