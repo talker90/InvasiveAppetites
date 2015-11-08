@@ -2,21 +2,25 @@
 <html lang="en-US">
 <head>
 
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Invasive Appetites</title>
 
 <!-- local -->
-
-<link rel="stylesheet" href="styles2.css" type="text/css"/>
-
-<link rel="stylesheet" media="screen and (min/max-width: sizepx)" href="over/underSizePx.css" />
 
 <script src="jquery.js"></script>
 
 <!-- CDN -->
 
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<!--[if lt IE 7]>
+ <script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" 
+ type="text/javascript">
+ </script>
+<![endif]-->
 
 <style>
 
@@ -133,6 +137,63 @@ summary, mark {
     font-weight: 100;
 }
 
+input[id="hamburger"] {
+	display: none;
+}
+
+@media only screen and (min-width:0) and (max-width:1568px) {
+
+	nav ~ nav {
+		display: none !important;
+	}
+	
+	header {
+		padding-top: 0;
+	}
+
+	label[for="hamburger"] {
+		font-size: 5rem; /* fallback */
+		font-size: 10vmin;
+		display: block !important;
+	}
+	
+	label[for="hamburger"] + nav a {
+		font-size: 4rem; /* fallback */
+		font-size: 7vmin;
+	}
+	
+	label[for="hamburger"] + nav {
+		overflow:hidden;
+		height:0;
+		-webkit-transition:max-height 500ms ease;
+		-moz-transition:max-height 500ms ease;
+		-o-transition:max-height 500ms ease;
+		transition:max-height 500ms ease;
+	}
+	
+	input[id="hamburger"]:checked ~ nav {
+		height:20rem;
+		font-size: 10rem; /* fallback */
+		font-size: 20vmin;
+	}
+}
+	
+@media only screen and (min-width:1569px) {
+
+	header {
+		padding-top: 5vh;
+	}
+	
+	label[for="hamburger"], nav:first-of-type  {
+		display: none !important;
+	}
+	
+	nav ~ nav {
+		display: block !important;
+	}
+}
+
+
 /* tricky stuff to make letters strech across screen. see: http://stackoverflow.com/questions/6865194/fluid-width-with-equally-spaced-divs */
 header {
 	width:100%;
@@ -159,9 +220,8 @@ header div {
 header {
 	padding-left: 10vw;
 	padding-right: 10vw;
-	padding-top: 5vh;
 	padding-bottom: 0;
-}
+} /* padding-top in hamburger @media query */
 
 header div {
 	color:#242423; /* dark grey */
@@ -183,18 +243,18 @@ nav li {
 	font-size: 2.5vmin;
 }
 
-nav a {
+nav a, label[for="travel"] {
 	text-decoration: none;
 	min-height: 48px; /* size of a finger-tip */
 	min-width: 48px; /* size of a finger-tip */
 }
 
-nav a:hover {
-	color:black;
-}
-
 nav a:visited {
 	color:#989898; /* grey */
+}
+
+nav a:hover {
+	color:black;
 }
 
 nav a:active{
@@ -203,6 +263,10 @@ nav a:active{
 
 .active {
 	color:#242423; /* dark grey */
+}
+
+nav li li a {
+	color: black; /* dark grey */
 }
 
 /* for dropdown */
@@ -235,12 +299,9 @@ nav li li {
 	
 }
 
-nav li li a {
-	color: black; /* dark grey */
-}
-
 nav ul > li:hover li {
-	max-height:150px;
+	max-height: 150rem; /* fallback */
+	max-height:100vh;
 }
 
 /*slider*/
@@ -421,7 +482,7 @@ figcaption {
 	bottom: 8.5rem; /* fallback */
 	bottom: -30vh;
 	height:48px; /* size of fingertip */
-	width: 65%;
+	width: 80%;
 }
 
 .filled {
@@ -487,8 +548,37 @@ footer {background: purple; border: 0.5px solid #999;}
 
 </style>
 
+
 </head>
 <body>
+
+<input type="checkbox" id="hamburger" />
+<label for="hamburger">&#x2630;</label>
+<nav>
+	<ul>
+		<li>
+			<a href="/public_html/index.html"><span class="active">HOME</span></a>
+		</li>
+		<li>
+			<a href="#" id="travel">TRAVEL</a>
+			<ul>
+				<li>
+					<a href="http://www.invasiveappetites.wordpress.com/colombia">COLOMBIA</a>
+				</li>
+				<li>
+					<a href="http://www.invasiveappetites.wordpress.com/ecuador">ECUADOR</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="http://www.invasiveappetites.wordpress.com/quito-posts">FOOD</a>
+		</li>
+		<li>
+			<a href="http://www.invasiveappetites.wordpress.com/about">US</a>
+		</li>
+	</ul>
+</nav>
+
 <header>
 	<div>I</div>
 	<div>n</div>
@@ -699,15 +789,6 @@ $(document).ready(function () {
 });
 </script>
 
-<script type="text/javascript">
-
-var $textWidth = $("#travel").width();
-var $footer = $("footer");
-
-$footer.append().$textWidth.val();
-
-</script>
-
 
 <script>
 $(document).ready(function () {
@@ -718,7 +799,9 @@ $($nav).on("dblclick","#travel",function(event) {
 	window.location.replace($(this).attr("http://www.invasiveappetites.wordpress.com/travel/"));
 });
 
-//add collapsing to hamburger, but can probably do with pure css
+//if we end up with more dropdowns, consider not(only-type-of) ?
+
+// fix hovers
 
 });
 </script>
