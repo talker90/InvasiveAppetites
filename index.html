@@ -141,7 +141,7 @@ input[id="hamburger"] {
 	display: none;
 }
 
-@media only screen and (min-width:0) and (max-width:1568px) {
+@media only screen and (min-width:0) and (max-width:568px) {
 
 	nav ~ nav {
 		display: none !important;
@@ -178,7 +178,7 @@ input[id="hamburger"] {
 	}
 }
 	
-@media only screen and (min-width:1569px) {
+@media only screen and (min-width:569px) {
 
 	header {
 		padding-top: 5vh;
@@ -453,13 +453,38 @@ section li {
 figcaption {
 	text-align: center;
 	position: relative;
-	bottom: 17rem; /* fallback */
-	bottom: calc(45vh - 3rem/2); /* fallback */
-	bottom: calc(45vh - 8vmin/2);
+	bottom: 35rem; /* fallback */
+	bottom: calc(52.5vh - 3rem/2); /* fallback */
+	bottom: calc(52.5vh - 8vmin/2);
 	color:white;
 	font-size: 3rem; /* fallback */
 	font-size: 8vmin;
 	z-index: 1;
+}
+
+#slide-3 + figcaption {
+	left: 4rem; /* fallback */
+	left: 8vmin;
+}
+
+@media only screen and (orientation:landscape) {
+	#slide-2 + figcaption {
+		bottom: 20rem; /* fallback */
+		left: 4rem; /* fallback */
+		bottom: 46vh;
+		left: 7vw;
+	}
+}
+
+@media only screen and (orientation:portrait) {
+	#slide-3 + figcaption {
+		left: 2rem; /* fallback */
+		left: 4vw;
+	}
+	#slide-2 + figcaption {
+		bottom: 24rem; /* fallback */
+		bottom: 40vh;
+	}
 }
 
 [id*="dot-"] {
@@ -477,7 +502,7 @@ figcaption {
 	margin-right: 0;
 }
 
-#dotsContainer {
+section > div {
 	position: relative;
 	bottom: 8.5rem; /* fallback */
 	bottom: -30vh;
@@ -533,7 +558,6 @@ footer p:first-of-type {
 	width: 75%;
 }
 
-
 /*
 header {background: red; border: 0.5px solid #999;}
 header div {background: orange; border: 0.5px solid #999;}
@@ -544,7 +568,6 @@ footer {background: purple; border: 0.5px solid #999;}
 [class*="col-"] {height:4vh;padding:-1px;border:1px red solid;}
 #ruler {display:block;}
 */
-
 
 </style>
 
@@ -661,16 +684,10 @@ footer {background: purple; border: 0.5px solid #999;}
 			</a>
 		</li>
 	</ul>
-	<div class="row">
-		<div class="col-4"></div>
-		<div class="col-4">
-			<div id="dotsContainer">
-				<div class="filled" id="dot-1"></div>
-				<div id="dot-2"></div>
-				<div id="dot-3"></div>
-			</div>
-		</div>
-		<div class="col-4"></div>
+	<div>
+		<div class="filled" id="dot-1"></div>
+		<div id="dot-2"></div>
+		<div id="dot-3"></div>
 	</div>
 </section>
 
@@ -799,9 +816,19 @@ $($nav).on("dblclick","#travel",function(event) {
 	window.location.replace($(this).attr("http://www.invasiveappetites.wordpress.com/travel/"));
 });
 
-//if we end up with more dropdowns, consider not(only-type-of) ?
+// move figures up, and the third to the right
+
+// fix letters sp they fit across phone screen
+
+// bring hamburger to the right, make letters smaller, put less space at dropdown
+
+//find dots on mobile
 
 // fix hovers
+
+// fix images so they all load at once, so orientation doesn't reload
+
+//if we end up with more dropdowns, consider not(only-type-of) ?
 
 });
 </script>
