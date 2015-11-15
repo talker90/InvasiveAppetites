@@ -795,7 +795,7 @@ $(document).ready(function () {
     var animationSpeed = 1000;
     var pause = 3000;
     var currentSlide = 1;
-    
+  
     function startSlider() {
         interval = setInterval(function() {
             $slideContainer.animate({'margin-left': '-='+width}, animationSpeed, function() {
@@ -803,6 +803,19 @@ $(document).ready(function () {
                     currentSlide = 1;
                     $slideContainer.css('margin-left', 0);
                 }
+                $(window).on("orientationchange",function(){
+  					pauseSlider();
+  					currentSlide = 1;
+                    $slideContainer.css('margin-left', 0);
+                    $dot1.addClass('filled');
+					$dot2.removeClass('filled');
+					$dot3.removeClass('filled');
+					$windowWidth = $slider.css('width');
+    				$windowWidthUnitless = $slider.width();
+    				width = $windowWidth;
+    				doubleWidth = $windowWidthUnitless * 2;
+                    startSlider();
+				});
                 switch (currentSlide) {
 					case 2:
 						$dot1.toggleClass('filled');
@@ -820,6 +833,7 @@ $(document).ready(function () {
 						$dot1.addClass('filled');
 						$dot2.removeClass('filled');
 						$dot3.removeClass('filled');
+						break;
 				}
             });
         }, pause);
@@ -828,7 +842,7 @@ $(document).ready(function () {
     function pauseSlider() {
         clearInterval(interval);
     }
-
+    
     $slideContainer
         .on('mouseenter', pauseSlider)
         .on('mouseleave', startSlider);
@@ -874,11 +888,6 @@ var $nav = $('nav');
 $($nav).on("dblclick",'label[for="travel"]',function(event) {
 	window.location.replace($(this).attr("http://www.invasiveappetites.wordpress.com/travel/"));
 });
-
-
-// force more reload when orientation changed
-
-// if we end up with more dropdowns, consider not(only-type-of) ?
 
 });
 </script>
