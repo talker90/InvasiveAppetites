@@ -155,11 +155,14 @@ input[id="hamburger"] {
 		font-size: 5rem; /* fallback */
 		font-size: 10vmin;
 		display: block !important;
+		float:right;
+		padding-right:2rem;
+		padding-right:4vw;
 	}
 	
 	label[for="hamburger"] + nav a {
-		font-size: 4rem; /* fallback */
-		font-size: 7vmin;
+		font-size: 2rem; /* fallback */
+		font-size: 4vmin;
 	}
 	
 	label[for="hamburger"] + nav {
@@ -172,9 +175,7 @@ input[id="hamburger"] {
 	}
 	
 	input[id="hamburger"]:checked ~ nav {
-		height:20rem;
-		font-size: 10rem; /* fallback */
-		font-size: 20vmin;
+		height:auto;
 	}
 }
 	
@@ -824,8 +825,6 @@ $($nav).on("dblclick","#travel",function(event) {
 	window.location.replace($(this).attr("http://www.invasiveappetites.wordpress.com/travel/"));
 });
 
-
-// bring hamburger to the right, make letters smaller, put less space at dropdown
 
 //find dots on mobile
 
