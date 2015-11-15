@@ -816,6 +816,19 @@ $(document).ready(function () {
     				doubleWidth = $windowWidthUnitless * 2;
                     startSlider();
 				});
+				$(window).on('resize', function(){
+  					pauseSlider();
+  					currentSlide = 1;
+                    $slideContainer.css('margin-left', 0);
+                    $dot1.addClass('filled');
+					$dot2.removeClass('filled');
+					$dot3.removeClass('filled');
+					$windowWidth = $slider.css('width');
+    				$windowWidthUnitless = $slider.width();
+    				width = $windowWidth;
+    				doubleWidth = $windowWidthUnitless * 2;
+                    startSlider();
+				});
                 switch (currentSlide) {
 					case 2:
 						$dot1.toggleClass('filled');
