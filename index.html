@@ -333,29 +333,37 @@ section li {
 }
 
 /* note iPhone 320x568 2x, iPad 768x1054 2x */
-#slide-1 {
-	background: url('image_1_320_397.jpg') no-repeat center center;
-	background-size: cover;
-}
-#slide-2 {
-	background: url('image_2_320_397.jpg') no-repeat center center;
-	background-size: cover;
-}
-#slide-3 {
-	background: url('image_3_320_397.jpg') no-repeat center center;
-	background-size: cover;
-}
-
-@media only screen and (min-resolution:192dpi), only screen and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (max-width:320px) {
 	#slide-1 {
+		background: url('image_1_568_224.jpg') no-repeat center center;
+		background: url('image_1_320_397.jpg') no-repeat center center;
+		background-size: cover;
+	}
+	#slide-2 {
+		background: url('image_2_568_224.jpg') no-repeat center center;
+		background: url('image_2_320_397.jpg') no-repeat center center;
+		background-size: cover;
+	}
+	#slide-3 {
+		background: url('image_3_568_224.jpg') no-repeat center center;
+		background: url('image_3_320_397.jpg') no-repeat center center;
+		background-size: cover;
+	}
+} /* listed two each time to try and force devices to download images for portrait and landscape so doesn't have to reload when rotated */
+
+@media only screen and (min-resolution:192dpi) and (max-width:320px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width:320px) {
+	#slide-1 {
+		background: url('image_1_1136_448.jpg') no-repeat center center;
 		background: url('image_1_640_795.jpg') no-repeat center center;
 		background-size: cover;
 	}
 	#slide-2 {
+		background: url('image_2_1136_448.jpg') no-repeat center center;
 		background: url('image_2_640_795.jpg') no-repeat center center;
 		background-size: cover; 
 	}
 	#slide-3 {
+		background: url('image_3_1136_448.jpg') no-repeat center center;
 		background: url('image_3_640_795.jpg') no-repeat center center;
 		background-size: cover; 
 	}
@@ -364,13 +372,16 @@ section li {
 @media only screen and (min-width:321px) {
 	#slide-1 {
 		background: url('image_1_568_224.jpg') no-repeat center center;
+		background: url('image_1_568_224.jpg') no-repeat center center;
 		background-size: cover; 
 	}
 	#slide-2 {
 		background: url('image_2_568_224.jpg') no-repeat center center;
+		background: url('image_2_568_224.jpg') no-repeat center center;
 		background-size: cover; 
 	}
 	#slide-3 {
+		background: url('image_3_568_224.jpg') no-repeat center center;
 		background: url('image_3_568_224.jpg') no-repeat center center;
 		background-size: cover; 
 	}
@@ -378,14 +389,17 @@ section li {
 
 @media only screen and (min-resolution:192dpi) and (min-width:321px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width:321px) {
 	#slide-1 {
+		background: url('image_1_640_795.jpg') no-repeat center center;
 		background: url('image_1_1136_448.jpg') no-repeat center center;
 		background-size: cover; 
 	}
 	#slide-2 {
+		background: url('image_2_640_795.jpg') no-repeat center center;
 		background: url('image_2_1136_448.jpg') no-repeat center center;
 		background-size: cover;
 	}
 	#slide-3 {
+		background: url('image_3_640_795.jpg') no-repeat center center;
 		background: url('image_3_1136_448.jpg') no-repeat center center;
 		background-size: cover; 
 	}
@@ -393,14 +407,17 @@ section li {
 
 @media only screen and (min-width:569px) {
 	#slide-1 {
+		background: url('image_1_1054_538.jpg') no-repeat center center;
 		background: url('image_1_768_738.jpg') no-repeat center center;
 		background-size: cover; 
 	}
 	#slide-2 {
+		background: url('image_2_1054_538.jpg') no-repeat center center;
 		background: url('image_2_768_738.jpg') no-repeat center center;
 		background-size: cover; 
 	}
 	#slide-3 {
+		background: url('image_3_1054_538.jpg') no-repeat center center;
 		background: url('image_3_768_738.jpg') no-repeat center center;
 		background-size: cover; 
 	}
@@ -408,14 +425,17 @@ section li {
 
 @media only screen and (min-resolution:192dpi) and (min-width:569px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width:569px) {
 	#slide-1 {
+		background: url('image_1_2108_1075.jpg') no-repeat center center;
 		background: url('image_1_1536_1476.jpg') no-repeat center center;
 		background-size: cover; 
 	}
 	#slide-2 {
+		background: url('image_2_2108_1075.jpg') no-repeat center center;
 		background: url('image_2_1536_1476.jpg') no-repeat center center;
 		background-size: cover; 
 	}
 	#slide-3 {
+		background: url('image_3_2108_1075.jpg') no-repeat center center;
 		background: url('image_3_1536_1476.jpg') no-repeat center center;
 		background-size: cover; 
 	}
@@ -423,14 +443,17 @@ section li {
 
 @media only screen and (min-width:769px) {
 	#slide-1 {
+		background: url('image_1_768_738.jpg') no-repeat center center;
 		background: url('image_1_1054_538.jpg') no-repeat center center;
 		background-size: cover; 
 	}
 	#slide-2 {
+		background: url('image_2_768_738.jpg') no-repeat center center;
 		background: url('image_2_1054_538.jpg') no-repeat center center;
 		background-size: cover; 
 	}
 	#slide-3 {
+		background: url('image_3_768_738.jpg') no-repeat center center;
 		background: url('image_3_1054_538.jpg') no-repeat center center;
 		background-size: cover; 
 	}
@@ -438,14 +461,17 @@ section li {
 
 @media only screen and (min-resolution:192dpi) and (min-width:769px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width:769px) {
 	#slide-1 {
+		background: url('image_1_1536_1476.jpg') no-repeat center center;
 		background: url('image_1_2108_1075.jpg') no-repeat center center;
 		background-size: cover; 
 	}
 	#slide-2 {
+		background: url('image_2_1536_1476.jpg') no-repeat center center;
 		background: url('image_2_2108_1075.jpg') no-repeat center center;
 		background-size: cover; 
 	}
 	#slide-3 {
+		background: url('image_3_1536_1476.jpg') no-repeat center center;
 		background: url('image_3_2108_1075.jpg') no-repeat center center;
 		background-size: cover; 
 	}
@@ -826,13 +852,24 @@ $($nav).on("dblclick","#travel",function(event) {
 });
 
 
-//find dots on mobile
-
 // fix hovers
 
-// fix images so they all load at once, so orientation doesn't reload
+// force more reload when orientation changed
 
 //if we end up with more dropdowns, consider not(only-type-of) ?
+
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+
+{% if is_mobile % }
+  // Hides mobile browser's address bar when page is done loading.
+  window.addEventListener('load', function(e) {
+    setTimeout(function() { window.scrollTo(0, 1); }, 1);
+  }, false);
+{% endif % }
 
 });
 </script>
