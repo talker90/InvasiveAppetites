@@ -250,6 +250,9 @@ nav a, label[for="travel"] {
 	min-width: 48px; /* size of a finger-tip */
 }
 
+a:link {
+}
+
 nav a:visited {
 	color:#989898; /* grey */
 }
@@ -257,6 +260,15 @@ nav a:visited {
 nav a:hover {
 	color:black;
 }
+
+nav a:active {
+	color:black;
+}
+
+nav a:focus {
+	color:black;
+}
+
 
 nav a:active{
 	color:#242423; /* dark grey */
@@ -300,10 +312,25 @@ nav li li {
 	
 }
 
+nav ul > li:link {}
+
+nav ul > li:visited {}
+
 nav ul > li:hover li {
 	max-height: 150rem; /* fallback */
 	max-height:100vh;
 }
+
+nav ul > li:active li {
+	max-height: 150rem; /* fallback */
+	max-height:100vh;
+}
+
+nav ul > li:focus li {
+	max-height: 150rem; /* fallback */
+	max-height:100vh;
+}
+
 
 /*slider*/
 section {
@@ -852,11 +879,11 @@ $($nav).on("dblclick","#travel",function(event) {
 });
 
 
-// fix hovers
+// make dropdown checkbox
 
 // force more reload when orientation changed
 
-//if we end up with more dropdowns, consider not(only-type-of) ?
+// if we end up with more dropdowns, consider not(only-type-of) ?
 
 });
 </script>
