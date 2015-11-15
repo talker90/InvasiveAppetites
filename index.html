@@ -196,7 +196,7 @@ input[id="hamburger"] {
 
 /* tricky stuff to make letters strech across screen. see: http://stackoverflow.com/questions/6865194/fluid-width-with-equally-spaced-divs */
 header {
-	width:100%;
+	width:100vw;
 	text-align: justify;
 	-ms-text-justify: distribute-all-lines;
 	text-justify: distribute-all-lines;
@@ -221,12 +221,12 @@ header {
 	padding-left: 10vw;
 	padding-right: 10vw;
 	padding-bottom: 0;
-} /* padding-top in hamburger @media query */
+} /* padding-top and padding-left in hamburger @media query */
 
 header div {
 	color:#242423; /* dark grey */
-	font-size: 4rem; /* fall-back */
-	font-size: 8vmin;
+	font-size: 3.5rem; /* fall-back */
+	font-size: 6vw;
 } 
 
 nav {
@@ -325,7 +325,7 @@ section li {
 	float: left;
 }
 
-[id*="slide-"] {
+[id^="slide-"] {
 	width: 100vw;
 	height: 70vh;
 	z-index: -1;
@@ -487,27 +487,33 @@ figcaption {
 	}
 }
 
-[id*="dot-"] {
+section > div > div > div {
 	background-color: transparent;
 	min-height: 40px; /* size of fingertip */
 	min-width: 40px; /* size of fingertip */
-	border-radius: 24px;
+	border-radius: 20px;
 	border: 1px solid #989898; /* grey */ /* fallback */
 	border: 0.1vmin solid #989898; /* grey */
 	float:left; 
 	margin-right: 40px; /* size of fingertip */
 }
 
-[id*="dot-"]:last-of-type {
+section > div > div > div:last-of-type {
 	margin-right: 0;
 }
 
-section > div {
+section > div > div {
 	position: relative;
-	bottom: 8.5rem; /* fallback */
-	bottom: -30vh;
-	height:48px; /* size of fingertip */
-	width: 80%;
+	margin: auto;
+	min-height:40px; /* size of fingertip */
+	width: 200px;
+	top: 20rem; /* fallback */
+	top: 60vh;
+}
+
+section > div {
+	position: absolute;
+	width: 100%;
 }
 
 .filled {
@@ -685,9 +691,11 @@ footer {background: purple; border: 0.5px solid #999;}
 		</li>
 	</ul>
 	<div>
-		<div class="filled" id="dot-1"></div>
-		<div id="dot-2"></div>
-		<div id="dot-3"></div>
+		<div>
+			<div class="dot filled"></div>
+			<div class="dot"></div>
+			<div class="dot"></div>
+		</div>
 	</div>
 </section>
 
@@ -724,10 +732,10 @@ $(document).ready(function () {
     var $slides = $slider.find('li');
     var $windowWidth = $slider.css('width');
     var $windowWidthUnitless = $slider.width();
-    var $dot1 = $slider.find('#dot-1');
-    var $dot2 = $slider.find('#dot-2');
-    var $dot3 = $slider.find('#dot-3');
-    var $dots = $slider.find('#dotsContainer');
+    var $dot1 = $slider.find('.dot:first-of-type');
+    var $dot2 = $slider.find('.dot:nth-of-type(2)');
+    var $dot3 = $slider.find('.dot:last-of-type');
+    var $dots = $slider.find('section>div>div');
     var interval;
 
     //config
@@ -816,9 +824,6 @@ $($nav).on("dblclick","#travel",function(event) {
 	window.location.replace($(this).attr("http://www.invasiveappetites.wordpress.com/travel/"));
 });
 
-// move figures up, and the third to the right
-
-// fix letters sp they fit across phone screen
 
 // bring hamburger to the right, make letters smaller, put less space at dropdown
 
