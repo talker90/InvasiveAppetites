@@ -160,7 +160,7 @@ input[id="hamburger"] {
 		padding-right:4vw;
 	}
 	
-	label[for="hamburger"] + nav a {
+	label[for="hamburger"] + nav li {
 		font-size: 2rem; /* fallback */
 		font-size: 4vmin;
 	}
@@ -269,11 +269,6 @@ nav a:focus {
 	color:black;
 }
 
-
-nav a:active{
-	color:#242423; /* dark grey */
-}
-
 .active {
 	color:#242423; /* dark grey */
 }
@@ -282,7 +277,6 @@ nav li li a {
 	color: black; /* dark grey */
 }
 
-/* for dropdown */
 nav > ul > li {
 	display: inline;
 	padding-right: 40px; /* size of a finger-tip */
@@ -291,7 +285,8 @@ nav > ul > li {
 nav > ul > li:last-of-type {
 	padding-right: 0;
 }
-    
+
+/* for dropdown */    
 nav li ul {
 	position:absolute;
 	z-index:1; /* just in case */
@@ -302,35 +297,41 @@ nav li ul {
 	left:calc(50vw - (((31.8211vw + 38.9646vh)/2)/4) );
 }
 
-nav li li {
+input[id="travel"] {
+	display: none;
+}
+
+input[id="travel"]:checked ~ ul li {
 	overflow:hidden;
 	max-height:0;
 	-webkit-transition:max-height 500ms ease;
 	-moz-transition:max-height 500ms ease;
 	-o-transition:max-height 500ms ease;
 	transition:max-height 500ms ease;
+}
 	
+input[id="travel"] ~ ul li {
+	height:auto;
 }
 
-nav ul > li:link {}
+out nav ul > li:link {}
 
-nav ul > li:visited {}
+out nav ul > li:visited {}
 
-nav ul > li:hover li {
+out nav ul > li:hover li {
 	max-height: 150rem; /* fallback */
 	max-height:100vh;
 }
 
-nav ul > li:active li {
+out nav ul > li:active li { 
 	max-height: 150rem; /* fallback */
 	max-height:100vh;
 }
 
-nav ul > li:focus li {
+out nav ul > li:focus li {
 	max-height: 150rem; /* fallback */
 	max-height:100vh;
 }
-
 
 /*slider*/
 section {
@@ -643,15 +644,10 @@ footer {background: purple; border: 0.5px solid #999;}
 			<a href="/public_html/index.html"><span class="active">HOME</span></a>
 		</li>
 		<li>
-			<a href="#" id="travel">TRAVEL</a>
-			<ul>
-				<li>
-					<a href="http://www.invasiveappetites.wordpress.com/colombia">COLOMBIA</a>
-				</li>
-				<li>
-					<a href="http://www.invasiveappetites.wordpress.com/ecuador">ECUADOR</a>
-				</li>
-			</ul>
+			<a href="http://www.invasiveappetites.wordpress.com/colombia">COLOMBIA</a>
+		</li>
+		<li>
+			<a href="http://www.invasiveappetites.wordpress.com/ecuador">ECUADOR</a>
 		</li>
 		<li>
 			<a href="http://www.invasiveappetites.wordpress.com/quito-posts">FOOD</a>
@@ -690,7 +686,8 @@ footer {background: purple; border: 0.5px solid #999;}
 			<a href="/public_html/index.html"><span class="active">HOME</span></a>
 		</li>
 		<li>
-			<a href="#" id="travel">TRAVEL</a>
+			<input type="checkbox" id="travel" checked="checked" />
+			<label for="travel">TRAVEL</label>
 			<ul>
 				<li>
 					<a href="http://www.invasiveappetites.wordpress.com/colombia">COLOMBIA</a>
@@ -874,12 +871,10 @@ $(document).ready(function () {
 
 var $nav = $('nav');
 
-$($nav).on("dblclick","#travel",function(event) {
+$($nav).on("dblclick",'label[for="travel"]',function(event) {
 	window.location.replace($(this).attr("http://www.invasiveappetites.wordpress.com/travel/"));
 });
 
-
-// make dropdown checkbox
 
 // force more reload when orientation changed
 
