@@ -75,7 +75,7 @@ summary, mark {
 }
 
 .row {
-	width:100vw;
+	width:100%;
 	
 	white-space:nowrap;
 	position:absolute;
@@ -112,7 +112,7 @@ summary, mark {
 
 	/* for mobile */
 [class*="col-"] {
-	width: 100vw;
+	width: 100%;
 }
 
 @media only screen and (min-width: 600px) {
@@ -152,6 +152,16 @@ summary, mark {
     font-family: 'Trebuchet MS', Verdana, 'Geneva', Arial, sans-serif;
     color:#989898; /* grey */
     font-weight: 100;
+}
+
+body {
+  text-align: center;
+}
+
+#wrapper {
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 input[id="hamburger"] {
@@ -214,7 +224,7 @@ input[id="hamburger"] {
 
 /* tricky stuff to make letters strech across screen. see: http://stackoverflow.com/questions/6865194/fluid-width-with-equally-spaced-divs */
 header {
-	width:100vw;
+	width:100%;
 	text-align: justify;
 	-ms-text-justify: distribute-all-lines;
 	text-justify: distribute-all-lines;
@@ -235,12 +245,6 @@ header div {
 }
 /* end tricky stuff */
 
-header {
-	padding-left: 10vw;
-	padding-right: 10vw;
-	padding-bottom: 0;
-} /* padding-top and padding-left in hamburger @media query */
-
 header div {
 	color:#242423; /* dark grey */
 	font-size: 3.5rem; /* fall-back */
@@ -248,7 +252,7 @@ header div {
 } 
 
 nav {
-	width: 100vw;
+	width: 100%;
 }
 
 nav ul {
@@ -353,7 +357,7 @@ out nav ul > li:focus li {
 /*slider*/
 section {
 	overflow:hidden;
-	width:100vw;
+	width:100%;
 	height:70vh;
 }
 
@@ -372,7 +376,7 @@ section li {
 }
 
 [id^="slide-"] {
-	width: 100vw;
+	width: 100%;
 	height: 70vh;
 	z-index: -1;
 }
@@ -564,10 +568,11 @@ section > div > div > div {
 	min-height: 40px; /* size of fingertip */
 	min-width: 40px; /* size of fingertip */
 	border-radius: 20px;
-	border: 1px solid #989898; /* grey */ /* fallback */
-	border: 0.1vmin solid #989898; /* grey */
+	border: 1px solid gray; /* fallback */
+	border: 0.1vmin solid gray;
 	float:left; 
 	margin-right: 40px; /* size of fingertip */
+	z-index: 1; /* just in case */
 }
 
 section > div > div > div:last-of-type {
@@ -674,6 +679,8 @@ footer {background: purple; border: 0.5px solid #999;}
 		</li>
 	</ul>
 </nav>
+
+<div id="wrapper">
 
 <header>
 	<div>I</div>
@@ -783,6 +790,8 @@ footer {background: purple; border: 0.5px solid #999;}
 		</div>
 	</div>
 </footer>
+
+</div>
 
 <div class="row" id="ruler" style="position:fixed;bottom:50vh;"><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div><div class="col-1" style="height:4vh;padding:-1px;border:1px red solid;"></div></div><!-- this is just something I use to measure my gridding with, it's set display:none; above -->
 
